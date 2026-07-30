@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark shadow-lg">
+        <div class="container">
+            <a href="" class="navbar-brand">Student Info</a>
+        </div>
+    </nav>
+
+    <div class="row mt-4 m-auto"> 
+        <div class="col-2"><button class="btn btn-primary"onclick="show()">All Student</button></div>
+        <div class="col-2"><button class="btn btn btn-primary" onclick="gender('male')">Male</button></div>
+        <div class="col-2"><button class="btn btn-primary"onclick="gender('female')">Female</button></div>
+        <div class="col-3"><input type="text" placeholder="Search by Name" id="nameq" class="form-control" onkeypress="search()"></div>
+    </div>
+
+    <section class="w-75 mt-4 m-auto">
+        <table class="table tabel-hover table-striped text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                </tr>
+            </thead>
+            <tbody id="data">
+               
+            </tbody>
+        </table>
+    </section>
+    <script>
+
+        let dis = document.getElementById("data");
+        let Students=[
+            {id:101,name:"john",gender:"male"},
+            {id:102,name:"Aana",gender:"female"},
+            {id:103,name:"Harry",gender:"male"},
+            {id:104,name:"Hermonie",gender:"female"},
+            {id:105,name:"Luke",gender:"male"},
+            {id:106,name:"Ben",gender:"male"},
+            {id:107,name:"Eva",gender:"female"},
+            {id:108,name:"Samantha",gender:"female"},
+            {id:109,name:"Wick",gender:"male"},
+        ]
+        function display(arr){
+            let res="";
+            arr.forEach((i)=>{
+                res+=`<tr>
+                    <td>${i.id}</td>
+                    <td>${i.name}</td>
+                    <td>${i.gender}</td>
+                </tr>`
+            })
+
+            dis.innerHTML=res
+        }
+        function show(){
+            display(Students)
+        }
+      
+
+        function gender(gen){
+            display(Students.filter((i)=>i.gender===gen))
+
+        }
+
+        function search(){
+            let key = document.getElementById("nameq").value.toLowerCase();
+            display(Students.filter((i)=>i.name.toLowerCase().includes(key)))
+
+
+
+        }
+
+
+             
+
+    </script>
+</body>
+</html>

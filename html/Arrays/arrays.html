@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Arrays</h1>
+    <script>
+        let num = [10,20,30,0,3,4,5,"hi",true]
+        console.log(num)
+        console.log(num[-1])
+        console.log(num[1])
+        console.log(num.length)
+        //i =  n-1;
+        for( let i=0;i<=num.length-1;i++) console.log(num[i])
+
+        for(let i of num) console.log(i)
+
+        const x=0;
+        
+        for(const j of num){ console.log("issue") }
+        for(const j of num)  console.log("issue")
+
+       let student=  {
+            id:56,
+            name:"Ana"
+        }
+        for (let i in student){
+            console.log(i,student[i])
+        }
+
+        let brr=[1,2,0,3,4,5];
+        console.log(brr)
+        brr.push(6)
+        console.log(brr)
+
+         brr.pop()
+        console.log(brr)
+
+        brr.shift();
+        console.log(brr)
+
+        brr.unshift("Ana")
+        console.log(brr)
+
+        num.forEach(i=>console.log(i))
+
+        let cube = brr.map(n=> n*n*n);
+        console.log(cube)
+        let odd = brr.filter(n=>n%2!=0)
+        console.log(odd)
+         let odd1 = brr.find(n=>n%2!=0)
+        console.log(odd1)
+
+
+console.log(brr.includes(2))
+
+console.log(brr.some(n=>n!=0))
+console.log(brr.every(n=>n!=0))
+
+
+
+
+
+
+
+
+        
+    </script>
+</body>
+</html>
